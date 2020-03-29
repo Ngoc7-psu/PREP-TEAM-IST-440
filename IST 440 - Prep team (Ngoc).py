@@ -9,27 +9,12 @@ import numpy
 import numpy as np
 import Adafruit_DHT
 import enum
+import subprocess
 
-# Variables
-rollerSpeed #RPM
-rollersGap #Milimeters
-grainWeight #Pounds
+recipe = input('Enter recipe: ')
+raw_materials = input('Enter raw materials: ')
+quality_checks = input('Enter quality checks: ')
+process_duration = input('Enter process duration: ')
 
-
-class Milling:
-
-# Adjusting the speed of the rollers
-    def rollersSpeed(self):
-
-# Adjusting the rollers placement
-    def rollersGap(self):
-
-
-
-
-# Emergency killswitch button (ESC)
-    def Killswitch(self):
-
-
-
-
+# Dummy code to trigger shell command according to the user input, may update later
+subprocess.Popen("echo {} {} {} {}".format(recipe, raw_materials, quality_checks, process_duration), shell=True)
