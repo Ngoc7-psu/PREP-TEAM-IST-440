@@ -67,11 +67,9 @@ def Loop():
         time.sleep(25)
         if (result != emptyList):
         #import Your Main Program name here.
-            #import latest file
-            
-            #import PrepTeamX
-            #import PrepTeamX7
-            import PrepTeamX6
+        #import latest file
+            import PrepTeamX
+            #import PrepTeamX6
             
 
 Loop()
