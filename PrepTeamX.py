@@ -73,7 +73,7 @@ displayBalrog()
 def Get_BrewTask_for_CrowPi():
     # Set the request parameters
     url = 'https://emplkasperpsu1.service-now.com/api/now/table/x_snc_beer_brewing_lkbrewtask?sysparm_query=active%3Dtrue%5Erpi_to_executeSTARTSWITHPrepPi%5Estate%3D-5&sysparm_limit=10'
-    #(reference)url = 'https://emplkasperpsu1.service-now.com/api/now/table/x_snc_beer_brewing_lkbrewtask?sysparm_query=rpi_to_execute%3DBoilPi%5Eassigned_to%3Db03e1893db2240506b4a9646db961931%5Estate%3D-5&sysparm_limit=1'
+    
     # Eg. User name="admin", Password="admin" for this code sample.
     user = 'Amp6826'
     pwd = 'Swami101'
@@ -111,21 +111,21 @@ def Get_BrewTask_for_CrowPi():
     
     print('\nBrew Tasks confirmed.')
     time.sleep(1)
-    print(Task1 + ": " + shortDescTask1)
+    print(Task8 + ": " + shortDescTask8)
+    time.sleep(1.5)
+    print(Task4 + ": " + shortDescTask4)
     time.sleep(1.5)
     print(Task6 + ": " + shortDescTask6)
     time.sleep(1.5)
     print(Task2 + ": " + shortDescTask2)
     time.sleep(1.5)
-    print(Task4 + ": " + shortDescTask4)
-    time.sleep(1.5)
     print(Task3 + ": " + shortDescTask3)
     time.sleep(1.5)
-    print(Task7 + ": " + shortDescTask7)
-    time.sleep(1.5)
-    print(Task8 + ": " + shortDescTask8)
-    time.sleep(1.5)
     print(Task5 + ": " + shortDescTask5)
+    time.sleep(1.5)
+    print(Task1 + ": " + shortDescTask1)
+    time.sleep(1.5)
+    print(Task7 + ": " + shortDescTask7)
     time.sleep(1.5)
     return Task1, shortDescTask1, Task2, shortDescTask2, Task3, shortDescTask3, Task4, shortDescTask4, Task5, shortDescTask5, Task6, shortDescTask6, Task7, shortDescTask7, Task8, shortDescTask8
     
@@ -233,7 +233,26 @@ def total():
     
     total_price = (Grainprice + Maltprice + Hopsprice + Yeastprice)*int(keg_quantity) * int(keg_volume) 
     
+    time.sleep(1)
     print('\n')
+    print(Task8 + ": " + shortDescTask8)
+    time.sleep(2)
+    print('Number: ' + number)
+    time.sleep(1.5)
+    print('Order ID: ' + order_id)
+    time.sleep(1.5)
+    print('Payment ID: ' + payment_id)
+    time.sleep(1.5)
+    print('Customer ID: ' + customer_id)
+    time.sleep(1.5)
+    print('Beer Name: ' + beername)
+    time.sleep(1.5)
+    print('Beer Type: ' + beertype)
+    time.sleep(1.5)
+    print('Keg Volume: ' + keg_volume + ' gals')
+    time.sleep(1.5)
+    print('Keg Quantity: ' + keg_quantity)
+    time.sleep(3)
     print('Grains price:$', round(Grainprice,2))
     time.sleep(.5)
     print('Malt price:$', round(Maltprice,2))
@@ -242,8 +261,9 @@ def total():
     time.sleep(0.5)
     print('Yeast price:$', round(Yeastprice,2))
     time.sleep(1.5)
+    print('---------------------------------------------')
     print('Total price: $' + str(round(total_price, 2)))
-    final_price = (f'$'+str(round(total_price, 2)))   
+    final_price = (f'$'+str(round(total_price, 2)))
 
 for n in range(-1,1):
     if n == 0:
@@ -365,11 +385,11 @@ class Stepmotor:
         # (supply with distance to move and radius in same metric)
         self.turn(round(512*dist/(2*math.pi*rad),0))
 
-#TASK 3
 #Testing all equipment    
 def Test_Equipment(test=0):
+    time.sleep(2)
     print('\n')
-    print(Task6 + ": " + shortDescTask6)
+    print(Task4 + ": " + shortDescTask4)
     #time.sleep(3)
     lcd.set_backlight(0)
     lcd.message('Testing all')
@@ -378,6 +398,7 @@ def Test_Equipment(test=0):
     lcd.message('Equipment')
     #time.sleep(4.0)
     lcd.clear()
+    time.sleep(1.5)
     print("Moving started")
     lcd.message('Testing')
     motor = Stepmotor()
@@ -409,6 +430,19 @@ for n in range(-1,1):
         Test_Equipment()
         break
 
+# TASK 3
+# Quality check
+def qualityCheck():
+    time.sleep(2)
+    print('\n')
+    print(Task6 + ": " + shortDescTask6)
+    time.sleep(2)
+    print('Brewmaster has checked the grains quality')
+    time.sleep(0.5)
+    print('Log table will be updated at the end of this sequence.')
+    time.sleep(2)
+qualityCheck()
+
 # TASK 4
 # Gather the grains
 print('\n')
@@ -421,6 +455,7 @@ time.sleep(2)
 print('Grain Type 2: ' + GrainType2)
 time.sleep(2)
 print('Grain Type 3: ' + GrainType3)
+time.sleep(2)
 
 btn = 1
 if btn == 1:
@@ -516,8 +551,9 @@ for n in range(-1,1):
 # TASK 6
 # Mill the grains
 # LCD display message
+time.sleep(2)
 print('\n')
-print(Task7 + ": " + shortDescTask7)
+print(Task5 + ": " + shortDescTask5)
 time.sleep(1.5)
 def next_task():
     lcd.set_backlight(0)
@@ -584,7 +620,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(motion_pin, GPIO.IN)
 def Transfer_Grains(test=4):
     print('\n')
-    print(Task8 + ": " + shortDescTask8)
+    print(Task1 + ": " + shortDescTask1)
     time.sleep(1.5)
     lcd.set_backlight(0)
     lcd.clear()
@@ -624,22 +660,6 @@ if btn == 4:
 
 # TASK 8
 # Clean Up Task
-# Servo 
-#calculate process duration of prep
-# def TimeDuration():
-#     global start1, end1
-#     start1 = datetime.now()
-#     end1 = datetime.now()
-#     elapsed1 = (end1 - start1).seconds
-# 
-#     return start1, end1
-
-# def TimeDuration7():
-#     TimeDuration()
-#     time.sleep(4)  
-#     TimeDuration()
-
-
 #Servo   
 class sg90:
 
@@ -682,9 +702,10 @@ def Cleaning(test=4):
 
     try:
         if True:
+            time.sleep(3)
             print('\n')
-            print(Task5 + ": " + shortDescTask5)
-            time.sleep(1.5)
+            print(Task7 + ": " + shortDescTask7)
+            time.sleep(3)
             lcd.set_backlight(0)
             lcd.clear()
             lcd.show_cursor(True)
@@ -730,6 +751,8 @@ def Update_Log():
     lcd.clear()
     lcd.show_cursor(True)
     lcd.message('Done.')
+    print('\n')
+    time.sleep(1.5)
     print('Log table is updated.')
     time.sleep(3.0)
     print('Done.')
